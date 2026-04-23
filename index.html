@@ -3,32 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Biblioteca | Início</title>
+    <title>MyBooks | Início</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
     <header>
-        <h1>📚 Minha Biblioteca</h1>
+        <h1 class="logo-titulo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icone-logo">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+            </svg>
+            MyBooks
+        </h1>
         <nav aria-label="Navegação Principal">
             <ul>
                 <li><a href="/index.html" aria-current="page">Início</a></li>
                 <li><a href="/cadastro.html">Cadastrar Livro</a></li>
-                <li><a href="/listagem.html">Meu Acervo</a></li>
+                <li><a href="/historico.html">Meu Histórico</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero-section">
-            <h2>Organize sua coleção pessoal</h2>
-            <p>Catalogar seus livros nunca foi tão simples. Gerencie seus autores favoritos, anos de publicação e mantenha seu acervo sempre ao alcance de um clique.</p>
+        <section>
+            <h2>Controle suas leituras de forma prática</h2>
+            <p>O MyBooks é uma ferramenta simples para você registrar os livros que leu ou planeja ler. Cadastre as informações e consulte seu histórico quando precisar.</p>
             <br>
-            <a href="/cadastro.html" class="btn-cta">Começar Agora</a>
+            <a href="/cadastro.html" class="btn-primario">Começar a Cadastrar</a>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Minha Biblioteca Pessoal - Pedro & Léo</p>
+        <p>&copy; 2026 MyBooks - Pedro & Léo</p>
     </footer>
 
     <script type="module" src="/assets/js/app.js"></script>
