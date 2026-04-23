@@ -46,27 +46,40 @@ if (formLivro) {
 }
 
 // 2. LÓGICA DE RENDERIZAÇÃO DA LISTA (HISTÓRICO)
-const renderizar = () => {
+const renderizar = (filtro = '') => {
     gridLivros.innerHTML = '';
 
-    if (estadoLivros.length === 0) {
-        gridLivros.innerHTML = '<li class="mensagem-vazia">Nenhum livro no acervo.</li>';
+    const termoBusca = filtro.toLowerCase();
+    const livrosFiltrados = estadoLivros.filter(livro => 
+        livro.titulo.toLowerCase().includes(termoBusca) || 
+        livro.autor.toLowerCase().includes(termoBusca)
+    );
+
+    if (livrosFiltrados.length === 0) {
+        gridLivros.innerHTML = '<li class="mensagem-vazia">Nenhum livro encontrado na busca.</li>';
         return;
     }
 
-    estadoLivros.forEach(livro => {
+    livrosFiltrados.forEach(livro => {
         const li = document.createElement('li');
         li.innerHTML = `
             <article class="card-livro">
                 <h3>${livro.titulo}</h3>
                 <p><strong>Autor:</strong> ${livro.autor}</p>
                 <p><strong>Ano:</strong> ${livro.ano}</p>
+                <button onclick="removerLivro(${livro.id})" class="btn-remover">Remover</button>
             </article>
         `;
         gridLivros.appendChild(li);
     });
 };
+const inputBusca = document.getElementById('busca-livro');
 
+if (inputBusca) {
+    inputBusca.addEventListener('input', (evento) => {
+        renderizar(evento.target.value);
+    });
+}
 // Só chama o renderizar se o gridLivros existir na página atual 
 if (gridLivros) {
     renderizar();
@@ -83,3 +96,8 @@ function exibirMensagem(texto, classe) {
         msgStatus.className = "";
     }, 3000);
 }
+window.removerLivro = (id) => {
+    estadoLivros = estadoLivros.filter(livro => livro.id !== id);
+    localStorage.setItem('biblioteca_db', JSON.stringify(estadoLivros));
+    renderizar();
+};
