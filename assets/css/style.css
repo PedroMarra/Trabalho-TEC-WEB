@@ -104,12 +104,27 @@ button:hover {
     filter: brightness(1.2);
 }
 
+/* =========================================
+   GRID DE LIVROS (HISTÓRICO)
+   ========================================= */
 .lista-dinamica {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
+    list-style: none; /* Remove as bolinhas da tag <ul> */
     padding: 0;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    
+    /* Garante que a lista seja transparente e sem sombras */
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.mensagem-vazia {
+    color: #7f8c8d;
+    font-style: italic;
+    grid-column: 1 / -1; /* Faz a mensagem ocupar a linha inteira */
 }
 
 .card-livro {
@@ -153,4 +168,27 @@ footer {
     section {
         padding: 1.5rem;
     }
+}
+
+/* =========================================
+   MENSAGENS DE VALIDAÇÃO (JS)
+   ========================================= */
+#msg-status {
+    margin-top: 1rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+.sucesso {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+.erro {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
 }
