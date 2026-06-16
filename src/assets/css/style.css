@@ -237,3 +237,37 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+.card-historico article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.acoes-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto; /* Empurra as ações para o fundo do card */
+}
+
+.btn-remover {
+  background: transparent;
+  border: 1px solid #ef4444; /* Vermelho alerta */
+  color: #ef4444;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-remover:hover {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
