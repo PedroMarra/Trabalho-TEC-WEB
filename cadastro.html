@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyBooks | Início</title>
+    <title>MyBooks | Cadastro</title>
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -17,8 +17,8 @@
         </h1>
         <nav aria-label="Navegação Principal">
             <ul>
-                <li><a href="/index.html" aria-current="page">Início</a></li>
-                <li><a href="/cadastro.html">Cadastrar Livro</a></li>
+                <li><a href="/index.html">Início</a></li>
+                <li><a href="/cadastro.html" aria-current="page">Cadastrar Livro</a></li>
                 <li><a href="/historico.html">Meu Histórico</a></li>
             </ul>
         </nav>
@@ -26,10 +26,24 @@
 
     <main>
         <section>
-            <h2>Controle suas leituras de forma prática</h2>
-            <p>O MyBooks é uma ferramenta simples para você registrar os livros que leu ou planeja ler. Cadastre as informações e consulte seu histórico quando precisar.</p>
-            <br>
-            <a href="/cadastro.html" class="btn-primario">Começar a Cadastrar</a>
+            <h2>Adicionar Novo Livro</h2>
+            <p>Preencha as informações básicas para registrar uma nova obra no seu acervo.</p>
+            
+            <form id="form-livro">
+                <fieldset>
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" required>
+
+                    <label for="autor">Autor</label>
+                    <input type="text" id="autor" name="autor" required>
+
+                    <label for="ano">Ano de Publicação</label>
+                    <input type="number" id="ano" name="ano" min="1000" max="2026" required>
+                </fieldset>
+
+                <button type="submit" class="btn-primario">Salvar Livro</button>
+                <p id="msg-status" aria-live="polite"></p>
+            </form>
         </section>
     </main>
 
