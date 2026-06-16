@@ -6,7 +6,7 @@ export default function Historico() {
     { id: 2, titulo: 'O Programador Pragmático', autor: 'Andrew Hunt', status: 'Lendo' },
     { id: 3, titulo: 'Design Patterns', autor: 'Erich Gamma', status: 'Na Fila' }
   ]);
-
+//teste 1
   const removerLivro = (id) => {
     // Filtra o array retornando apenas os livros que tem o ID diferente do clicado
     const novaLista = meusLivros.filter(livro => livro.id !== id);
