@@ -12,7 +12,7 @@ export default function Historico() {
     const novaLista = meusLivros.filter(livro => livro.id !== id);
     setMeusLivros(novaLista);
   };
-
+// local de trabalho ---------
   return (
     <>
       <h1>Histórico de Leituras</h1>
