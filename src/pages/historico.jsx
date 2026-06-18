@@ -1,47 +1,68 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Historico() {
-  const [meusLivros, setMeusLivros] = useState([
-    { id: 1, titulo: 'Clean Architecture', autor: 'Robert C. Martin', status: 'Lido' },
-    { id: 2, titulo: 'O Programador Pragmático', autor: 'Andrew Hunt', status: 'Lendo' },
-    { id: 3, titulo: 'Design Patterns', autor: 'Erich Gamma', status: 'Na Fila' }
-  ]);
-//teste 1
-  const removerLivro = (id) => {
-    // Filtra o array retornando apenas os livros que tem o ID diferente do clicado
-    const novaLista = meusLivros.filter(livro => livro.id !== id);
-    setMeusLivros(novaLista);
+  const [livros, setLivros] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  // 1. Busca os livros reais do seu JSON-Server ao abrir a página
+  useEffect(() => {
+    const carregarHistorico = async () => {
+      try {
+        const response = await fetch('http://localhost:3000/livros');
+        const data = await response.json();
+        setLivros(data);
+      } catch (error) {
+        console.error('Erro ao buscar o histórico do banco de dados:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    carregarHistorico();
+  }, []);
+
+  // 2. Deleta o livro no JSON-Server e atualiza a tela
+  const handleExcluir = async (id) => {
+    if (!window.confirm('Tem certeza que deseja excluir esta leitura?')) return;
+
+    try {
+      await fetch(`http://localhost:3000/livros/${id}`, {
+        method: 'DELETE',
+      });
+      
+      // Atualiza a tela filtrando o livro que acabou de ser apagado
+      setLivros(livros.filter((livro) => livro.id !== id));
+    } catch (error) {
+      console.error('Erro ao excluir livro:', error);
+      alert('Não foi possível excluir o livro do servidor.');
+    }
   };
-// local de trabalho ---------
+
   return (
-    <>
-      <h1>Histórico de Leituras</h1>
-      <section className="lista-historico">
-        {meusLivros.length === 0 ? (
-          <p className="mensagem-vazia">Nenhum livro no histórico.</p>
-        ) : (
-          <ul className="grid-historico">
-            {meusLivros.map((livro) => (
-              <li key={livro.id} className="card-historico">
-                <article>
-                  <h3>{livro.titulo}</h3>
-                  <p>{livro.autor}</p>
-                  <section className="acoes-card">
-                    <span>{livro.status}</span>
-                    <button 
-                      onClick={() => removerLivro(livro.id)}
-                      className="btn-remover"
-                      aria-label={`Excluir livro ${livro.titulo}`}
-                    >
-                      Excluir
-                    </button>
-                  </section>
-                </article>
-              </li>
-            ))}
-          </ul>
-        )}
-      </section>
-    </>
+    <section className="container-historico">
+      <h2>Histórico de Leituras</h2>
+      
+      {loading ? (
+        <p className="loading-text">Carregando seu histórico...</p>
+      ) : livros.length > 0 ? (
+        <div className="grid-historico">
+          {livros.map((livro) => (
+            <article key={livro.id} className="card-historico">
+              <h3>{livro.titulo}</h3>
+              <p>{livro.autor}</p>
+
+              <div className="acoes-card">
+                <span>{livro.status}</span>
+                <button onClick={() => handleExcluir(livro.id)} className="btn-remover">
+                  Excluir
+                </button>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p className="mensagem-vazia">Você ainda não tem livros cadastrados no seu histórico.</p>
+      )}
+    </section>
   );
 }
