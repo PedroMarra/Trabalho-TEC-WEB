@@ -40,6 +40,7 @@
   text-transform: uppercase;
   color: #e2e8f0; 
 }
+
 .logo strong {
   font-weight: 700;
   letter-spacing: 4px;
@@ -118,6 +119,7 @@
   margin-top: auto;
   border-top: 1px solid #0f172a;
 }
+
 .grid-destaques {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -248,12 +250,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto; /* Empurra as ações para o fundo do card */
+  margin-top: auto; 
 }
 
 .btn-remover {
   background: transparent;
-  border: 1px solid #ef4444; /* Vermelho alerta */
+  border: 1px solid #ef4444; 
   color: #ef4444;
   padding: 0.3rem 0.8rem;
   border-radius: 4px;
@@ -271,29 +273,39 @@
   color: #ffffff;
   box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
 }
+
 .container-cadastro {
   max-width: 600px;
   margin: 0 auto;
 }
 
+/* ======== MUDANÇAS APLICADAS AQUI ======== */
 .form-cadastro fieldset {
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: none; /* Remove a linha que corta o título */
+  background: #020617; /* Mantém a cor de fundo da caixa */
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 2rem;
   margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  background: #020617;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra elegante */
 }
 
 .form-cadastro legend {
+  display: block;
+  width: 100%;
   color: #38bdf8;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  padding: 0 0.5rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória fina embaixo */
+  padding-bottom: 0.8rem;
 }
+/* ========================================= */
 
 .form-cadastro label {
   color: #e2e8f0;
@@ -340,6 +352,7 @@
   background: #0284c7;
   color: #ffffff;
 }
+
 .alerta-erro {
   background-color: rgba(239, 68, 68, 0.1);
   color: #ef4444;
@@ -360,4 +373,18 @@
   border-radius: 4px;
   font-weight: 500;
   font-size: 0.9rem;
+}
+
+.container-inicio h2, 
+.container-cadastro h2, 
+.container-historico h2 {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #94a3b8; 
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
 }
