@@ -6,39 +6,62 @@ export default function Cadastro() {
     autor: '',
     status: 'Na Fila'
   });
+  
+  // Novos estados para feedback na tela
+  const [mensagemErro, setMensagemErro] = useState('');
+  const [mensagemSucesso, setMensagemSucesso] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setLivro({ ...livro, [name]: value });
+    // Limpa os alertas ao começar a digitar novamente
+    setMensagemErro('');
+    setMensagemSucesso('');
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Impede a página de recarregar (Comportamento de SPA)
+    e.preventDefault(); 
+    setMensagemErro('');
+    setMensagemSucesso('');
+
+    // --- VALIDAÇÃO CUSTOMIZADA DO REACT ---
+    if (livro.titulo.trim().length < 3) {
+      setMensagemErro('O título do livro deve ter pelo menos 3 caracteres.');
+      return; // Para a execução aqui, não envia pro banco
+    }
+
+    if (livro.autor.trim().length < 3) {
+      setMensagemErro('O nome do autor deve ter pelo menos 3 caracteres.');
+      return;
+    }
+    // -------------------------------------
 
     try {
       await fetch('http://localhost:3000/livros', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          id: crypto.randomUUID(), // Gera um ID único automático
+          id: crypto.randomUUID(), 
           ...livro
         })
       });
 
-      // Limpa o formulário e avisa que deu certo
       setLivro({ titulo: '', autor: '', status: 'Na Fila' });
-      alert('Livro salvo com sucesso no banco de dados!');
+      setMensagemSucesso('Livro adicionado ao seu histórico com sucesso!');
     } catch (error) {
       console.error('Erro ao salvar:', error);
-      alert('Erro ao conectar com o servidor.');
+      setMensagemErro('Erro ao conectar com o servidor. Verifique o JSON-Server.');
     }
   };
 
   return (
     <section className="container-cadastro">
       <h2>Cadastrar Novo Livro</h2>
+      
+      {/* Exibição Semântica das Mensagens */}
+      {mensagemErro && <p className="alerta-erro" role="alert">{mensagemErro}</p>}
+      {mensagemSucesso && <p className="alerta-sucesso" role="status">{mensagemSucesso}</p>}
+
       <form onSubmit={handleSubmit} className="form-cadastro">
         <fieldset>
           <legend>Informações da Leitura</legend>
