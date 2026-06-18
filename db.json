@@ -1,22 +1,16 @@
 {
   "livros": [
     {
-      "id": "bmPLU0DAAMg",
-      "titulo": "Vasco da Gama",
-      "autor": "Lustosa",
-      "status": "Lido"
-    },
-    {
       "id": "lzwpa7cREMQ",
       "titulo": "revolução dos bichos",
       "autor": "geroge owell",
       "status": "Na Fila"
     },
     {
-      "id": "Vko0Esze7wQ",
-      "titulo": "clean code",
-      "autor": "n lembro",
-      "status": "Na Fila"
+      "id": "ChTtxveQhMI",
+      "titulo": "olá mundo",
+      "autor": "deus ",
+      "status": "Lido"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
