@@ -271,3 +271,72 @@
   color: #ffffff;
   box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
 }
+.container-cadastro {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-cadastro fieldset {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  background: #020617;
+}
+
+.form-cadastro legend {
+  color: #38bdf8;
+  font-weight: 600;
+  padding: 0 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.form-cadastro label {
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.form-cadastro input,
+.form-cadastro select {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  padding: 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+.form-cadastro input:focus,
+.form-cadastro select:focus {
+  outline: none;
+  border-color: #38bdf8;
+}
+
+.btn-salvar {
+  width: 100%;
+  background: #38bdf8;
+  color: #0f172a;
+  border: none;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn-salvar:hover {
+  background: #0284c7;
+  color: #ffffff;
+}
