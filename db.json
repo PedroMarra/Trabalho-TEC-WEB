@@ -1,0 +1,10 @@
+{
+  "livros": [
+    {
+      "id": "1",
+      "titulo": "Clean Code",
+      "autor": "Robert C. Martin",
+      "status": "Lido"
+    }
+  ]
+}
