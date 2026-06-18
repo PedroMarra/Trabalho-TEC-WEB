@@ -11,6 +11,12 @@
       "titulo": "revolução dos bichos",
       "autor": "geroge owell",
       "status": "Na Fila"
+    },
+    {
+      "id": "Vko0Esze7wQ",
+      "titulo": "clean code",
+      "autor": "n lembro",
+      "status": "Na Fila"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

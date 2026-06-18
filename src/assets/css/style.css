@@ -279,16 +279,16 @@
   margin: 0 auto;
 }
 
-/* ======== MUDANÇAS APLICADAS AQUI ======== */
+
 .form-cadastro fieldset {
-  border: none; /* Remove a linha que corta o título */
-  background: #020617; /* Mantém a cor de fundo da caixa */
+  border: none;
+  background: #020617;
   border-radius: 8px;
   padding: 2rem;
   margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra elegante */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .form-cadastro legend {
@@ -302,7 +302,7 @@
   letter-spacing: 1px;
   padding: 0;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória fina embaixo */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 0.8rem;
 }
 /* ========================================= */
@@ -388,3 +388,58 @@
   margin-bottom: 2rem;
   font-size: 1.2rem;
 }
+
+/* =========================================
+   DASHBOARD 
+   ========================================= */
+.grid-dashboard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .grid-dashboard {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-estatistica {
+  background: #020617;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-left: 3px solid #1e293b; 
+  border-radius: 8px;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  transition: all 0.4s ease;
+}
+
+.card-estatistica:hover {
+  transform: translateX(5px);
+  background: #0f172a;
+  box-shadow: -5px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-estatistica h3 {
+  font-size: 0.75rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.card-estatistica p {
+  font-size: 2.5rem;
+  font-weight: 300; 
+  color: #f8fafc; 
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card-estatistica.total:hover { border-left-color: #f8fafc; }
+.card-estatistica.lendo:hover { border-left-color: #f59e0b; }
+.card-estatistica.lido:hover { border-left-color: #22c55e; }
+.card-estatistica.na-fila:hover { border-left-color: #38bdf8; }
