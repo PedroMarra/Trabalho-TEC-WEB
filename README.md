@@ -1,64 +1,60 @@
-# MyBooks — Projeto TECWEB
-O MyBooks é a sua biblioteca virtual pessoal. É uma aplicação web rápida e simples onde você pode cadastrar, listar, buscar e remover seus livros favoritos.
+<div align="center">
+  <h1>📚 MyBooks</h1>
+  <p><em>Gestor de Leituras Pessoais com Arquitetura SPA e API REST Simulada</em></p>
 
-O maior diferencial do projeto é que ele funciona 100% offline. Todos os seus livros ficam salvos diretamente na memória do seu navegador (LocalStorage), sem precisar de internet, criação de contas ou banco de dados!
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/JSON_Server-323330?style=for-the-badge&logo=json&logoColor=white" alt="JSON Server" />
+</div>
 
-Aplicação web de acervo literário desenvolvida com HTML, CSS e JavaScript puro, sem frameworks. Os dados são persistidos no localStorage do navegador.
+<br>
+
+## 📖 Sobre o Projeto
+
+Projeto desenvolvido como requisito prático-avaliativo para o **6º semestre do curso de Ciência da Computação no Centro Universitário IESB**. 
+
+O **MyBooks** é uma *Single Page Application (SPA)* focada no rastreamento e gestão de hábitos de leitura. A aplicação se destaca por adotar rigorosos padrões de desenvolvimento da indústria, como HTML 100% semântico, *Frontend Validation* em formulários controlados e persistência de dados local simulando um ambiente real de backend.
+
+## ✨ Principais Funcionalidades
+
+* 📊 **Dashboard Dinâmico (Início):** Painel de controle minimalista que cruza os dados do banco local em tempo real para exibir estatísticas globais (Total, Lendo, Lido, Na Fila).
+* 📝 **Cadastro Controlado:** Formulário estruturado com semântica rigorosa (`<fieldset>`, `<legend>`, `<label>`). Inclui validação de dados via React antes do envio (POST).
+* 🗂️ **Histórico Interativo:** Listagem dinâmica gerada a partir de requisições `GET` à API. Permite a exclusão de registros (DELETE) com confirmação de segurança nativa.
+* 🎨 **UI/UX Premium:** Interface projetada em *Dark Mode*, priorizando uma estética *Quiet Luxury* e minimalista. Tipografia sofisticada (Montserrat) e design totalmente responsivo.
+
+## 🛠️ Tecnologias e Arquitetura
+
+* **Front-end:** React.js (inicializado via Vite para maior performance de *build*).
+* **Estilização:** CSS3 puro, utilizando CSS Grid e Flexbox para layouts complexos.
+* **Backend / Banco de Dados:** `json-server` (Simulação de API REST atuando na porta local 3000).
+* **Fluxo de Trabalho:** Metodologia Ágil simulada via Git e GitHub, com fluxo de *branches* organizado (`main`, `develop`, `feature/*`, `fix/*`) e resolução de *Issues*.
 
 ---
 
-## Como rodar
+## ⚙️ Como executar o projeto na sua máquina
 
-**Pré-requisito:** Node.js instalado.
+> ⚠️ **Atenção Avaliador:** Como o projeto utiliza o `json-server` para persistir os dados fisicamente em um arquivo `db.json`, **é estritamente necessário executar dois terminais em paralelo** (um para a API e outro para a Interface).
 
+Siga o passo a passo abaixo:
+
+### 1. Clonar o repositório e instalar dependências
+Abra o terminal na pasta desejada e execute:
 ```bash
-# 1. Acesse a pasta da aplicação
-cd mybooks
-
-# 2. Instale as dependências (apenas o Vite, usado como servidor local)
+git clone [https://github.com/PedroMarra/Trabalho-TEC-WEB.git)
+cd Trabalho-TEC-WEB
 npm install
+npm run server --> Subir o backend falso
+Abra outro terminal 
+npm run dev --> Frontend
+A aplicação estará disponível no navegador em http://localhost:5173
 
-# 3. Inicie o servidor de desenvolvimento
-npm run dev
+Equipe de Desenvolvimento:
 
-Acesse no navegador: http://localhost:5173
+Projeto construído em equipe, com divisão clara de responsabilidades e revisão de código via Pull Requests:
 
-/index.html Págna inicial com apresentação do projeto e chamada para ação
+Pedro Luiz Braga — Liderança Técnica, Revisão de Arquitetura UI/UX e Integrações Finais.
 
-/cadastro.html	Formulário para registrar novos livros no acervo
+Leonardo Lustosa — Configuração do JSON-Server, Formulários Controlados e Validação de Dados.
 
-/historico.html Listagem de livros salvos com filtro dinâmico e opção de exclusão
-
-
-**Arquitetura:**
-
-mybooks/
-├── index.html          # Página Início
-├── cadastro.html       # Página Cadastro
-├── historico.html      # Página Meu Histórico
-└── assets/
-    ├── css/
-    │   └── style.css   # Estilização global, variáveis e layout responsivo
-    └── js/
-        └── app.js      # Validação, renderização, filtro, remoção e localStorage
-
-        Não há backend. Todo o estado da aplicação vive no localStorage do navegador sob a chave biblioteca_db, estruturado como um array de objetos JSON:
-
-
-**Funcionalidades**
-
-Arquitetura 100% semântica (projeto desenvolvido com zero uso da tag <div>).
-
-Navegação fluida entre três páginas via menu de cabeçalho.
-
-Formulário com validação rigorosa (campos vazios e verificação de ano com 4 dígitos).
-
-Mensagens de feedback (sucesso/erro) temporárias na tela de cadastro.
-
-Listagem dinâmica baseada em grid responsivo.
-
-Filtro de busca em tempo real por título ou autor.
-
-Remoção individual de livros do acervo.
-
-Dados persistidos no navegador — sobrevivem a refresh (F5) e fechamento de aba.
+Eduardo — Estruturação Base, Roteamento e Componentização Inicial da Lista.

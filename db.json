@@ -1,0 +1,17 @@
+{
+  "livros": [
+    {
+      "id": "lzwpa7cREMQ",
+      "titulo": "revolução dos bichos",
+      "autor": "geroge owell",
+      "status": "Na Fila"
+    },
+    {
+      "id": "ChTtxveQhMI",
+      "titulo": "olá mundo",
+      "autor": "deus ",
+      "status": "Lido"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
